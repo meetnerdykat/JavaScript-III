@@ -4,10 +4,8 @@
   In this file you will be creating three constructor functions: GameObject, CharacterStats, Humanoid. 
 
   At the bottom of this file are 3 objects that all end up inheriting from Humanoid.  
-  ### 
   Use the objects at the bottom of the page to test your constructor functions. 
-  ###
-  
+ 
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
 
@@ -19,73 +17,12 @@
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-// GameObject Constructor
-function GameObject(atts) {
-  this.createdAt = atts.createdAt;
-  this.name = atts.name;
-  this.dimensions = atts.dimensions;
-}
-// GameObject destroy() prototype method
-GameObject.prototype.destroy = function() {
-  return `${this.name} was removed from the game.`;
-};
-
-// Create a new GameObject
-// const game1 = new GameObject({
-//   createdAt: new Date(),
-//   name: 'Game1',
-//   dimensions: {
-//     length: 1,
-//     width: 2,
-//     height: 2
-//   }
-// });
-
-// console.log(game1);
-// console.log(game1.createdAt);
-// console.log(game1.name);
-// console.log(game1.dimensions);
-// console.log(game1.destroy());
-
 /*
   === CharacterStats ===
   * healthPoints
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-
-// CharacterStats Constructor
-function CharacterStats(atts) {
-  this.createdAt = atts.createdAt;
-  this.name = atts.name;
-  this.dimensions = atts.dimensions;
-  this.healthPoints = atts.healthPoints;
-}
-
-// Have CharacterStats Inherit GameObject's Destroy prototype method
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-// GameObject destroy() prototype method
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-// Create a new GameObject
-// const char1 = new CharacterStats({
-//   createdAt: new Date(),
-//   name: 'Char1',
-//   dimensions: {
-//     length: 2,
-//     width: 3,
-//     height: 3
-//   },
-//   healthPoints: 5
-// });
-
-// Console.log the healthPoints property of new charStats1
-// console.log(char1);
-// console.log(char1.takeDamage());
-// console.log(char1.destroy());
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -97,69 +34,15 @@ CharacterStats.prototype.takeDamage = function() {
   * should inherit takeDamage() from CharacterStats
 */
 
-// Humanoid Constructor
-function Humanoid(atts) {
-  this.createdAt = atts.createdAt;
-  this.name = atts.name;
-  this.dimensions = atts.dimensions;
-  this.healthPoints = atts.healthPoints;
-  this.team = atts.team;
-  this.weapons = atts.weapons;
-  this.language = atts.language;
-}
-
-// Have Humanoid Inherit destroy and takeDamage prototype methods
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-// Humanoid greet() prototype method
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-
-// Create a new GameObject
-// const humanoid1 = new Humanoid({
-//   createdAt: new Date(),
-//   name: 'Hum1',
-//   dimensions: {
-//     length: 3,
-//     width: 4,
-//     height: 4
-//   },
-//   healthPoints: 10,
-//   team: 'A Team',
-//   weapons: ['Giant Sword', 'Shield'],
-//   language: 'Fairy'
-// });
-
-// Console.log
-// console.log(humanoid1);
-// console.log(humanoid1.team);
-// console.log(humanoid1.weapons);
-// console.log(humanoid1.language);
-// console.log(humanoid1.greet());
-// console.log(humanoid1.takeDamage());
-// console.log(humanoid1.destroy());
-
 /*
  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
- * IN MY OWN WORDS - Humanoid should be able to have and use all the same properties of CharacterStats and GameObject
  * Instances of CharacterStats should have all of the same properties as GameObject.
- * IN MY OWN WORDS - CharacterStats should be able to have and use all the same properties of GameObject
  */
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-// function GameObject(attributes) {
-//   this.createdAt = new Date();
-//   this.name = name;
-//   this.dimensions = dimensions;
-//   this.destroy = function() {
-//     return `On ${this.createdAt}, ${this.name} was removed from the game.`;
-//   };
-// }
-
-
+/*
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -175,7 +58,6 @@ Humanoid.prototype.greet = function() {
     ],
     language: 'Common Tongue',
   });
-
 
   const swordsman = new Humanoid({
     createdAt: new Date(),
@@ -221,6 +103,7 @@ Humanoid.prototype.greet = function() {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+*/
 
 // Stretch task:
 // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
